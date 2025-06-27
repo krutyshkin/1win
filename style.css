@@ -1,0 +1,135 @@
+/* Общие стили */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+
+body {
+    text-align: center;
+    color: white;
+    background: black;
+    overflow-x: hidden;
+    padding-top: 3cm;
+}
+
+/* Анимированный фон */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('bg.webp') no-repeat center/cover;
+    z-index: -1;
+    
+    /* Движение фона */
+    animation: moveBackground 30s linear infinite;
+}
+
+@keyframes moveBackground {
+    0% { background-position: 50% 50%; }
+    25% { background-position: 55% 45%; }
+    50% { background-position: 50% 40%; }
+    75% { background-position: 45% 45%; }
+    100% { background-position: 50% 50%; }
+}
+
+/* Контейнер */
+.container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+/* Логотип */
+.logo {
+    width: 200px;
+    max-width: 90%;
+    margin-bottom: 20px;
+}
+
+/* Кнопка */
+a.pulse {
+    display: inline-block;
+    background: linear-gradient(45deg, cyan, blue);
+    color: white;
+    font-size: 1.5em;
+    padding: 15px 30px;
+    border-radius: 10px;
+    text-decoration: none;
+    box-shadow: 0 0 20px cyan;
+    animation: pulse 1.5s infinite;
+    cursor: pointer;
+    z-index: 10;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 10px cyan; }
+    100% { box-shadow: 0 0 20px blue; }
+}
+
+a.pulse:hover {
+    transform: scale(1.1);
+}
+
+.fixed-button a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.seo-content h2 {
+    font-size: 1.8em;
+    color: cyan;
+    margin-bottom: 10px;
+}
+
+.seo-content p {
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+/* Полупрозрачный фон для описания и техподдержки */
+.info, .support {
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Полупрозрачный черный фон */
+    color: white;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+}
+
+.info h2, .support h2 {
+    font-size: 1.8em;
+    color: cyan;
+    margin-bottom: 10px;
+}
+
+.info p, .support p, .support a, .info ul li {
+    font-size: 1.1em;
+    line-height: 1.5;
+    color: white;
+}
+
+.support a {
+    display: block;
+    margin-top: 10px;
+    color: cyan;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.support a:hover {
+    text-decoration: underline;
+}
+
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .container { top: 55%; }
+    .subtitle { font-size: 1.2em; }
+    a.pulse { font-size: 1.2em; padding: 10px 20px; }
+}
